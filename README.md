@@ -1,7 +1,7 @@
 # Clean Code 
 
-T.박성백 sungback@naver.com
-https://github.com/sungback/Clean-Code
+T.박성백 sungback@naver.com  
+https://github.com/sungback/Clean-Code  
 
 ### List
 - [Chapter 01. 깨끗한 코드](#1)
