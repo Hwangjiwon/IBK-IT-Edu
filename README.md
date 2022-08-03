@@ -7,6 +7,10 @@ https://github.com/sungback/Clean-Code
 - [Chapter 01. 깨끗한 코드](#1)
 - [Chapter 02. 의미있는 이름](#2)
 - [Chapter 03. 함수](#3)
+- [Chapter 04. 주석](#4)
+- [Chapter 05. 형식 맞추기](#5)
+- [Chapter 06. 객체와 자료구조](#6)
+- [Chapter 07. 에러 핸들링](#7)
 
 <a name = "1"></a>
 ## Chapter 01. 깨끗한 코드
@@ -39,3 +43,72 @@ ShapeFactory -> ShapeFactoryImp
 
 <a name = "3"></a>
 ## Chapter 03. 함수
+* 작게 만들어라
+* 한가지만 해라. SOLID
+* 블록 잡아서 refactoring  
+블록 잡기 > 우클릭 > Refactor > Extract Method
+* switch문
+> 다형성을 이용하여 abstract factory(추상 팩토리)에 숨겨 다형적 객체를 생성하는 코드 안에서만 switch문을 사용하도록 한다.
+* 퍼사드 패턴 : 프론트 컨트롤러 ex) Dispatch servlet 
+* 프록시 패턴 : 임시로 만들어서 사용하고 사라지는 것. ex) Spring AOP
+* 부수효과를 일으키지 마라. 한 함수에서 딱 한가지만 수행할 것
+* 명령과 조회를 분리하라. 객체 상태변경이나 객체 정보를 반환하는 것 둘 중 하나만 할 것.
+* 반복하지 마라 
+* 구조적 프로그래밍
+* 올바른 함수 짜기
+> 단위 테스트 케이스, 코드 다듬기, 단일 기능의 함수 만들기, 이름 바꾸기, 중복 제거... 
+
+<a name = "4"></a>
+## Chapter 04. 주석
+ * 주석은 필요악이다. 주석으로 나쁜 코드를 보완하려 하지 말라.
+ * 좋은주석
+	 * 법적인 주석
+	 * 정보를 제공하는 주석
+	 * 의도를 설명하는 주석
+	 * 결과를 경고하는 주석
+	 * TODO 주석
+	 * 중요성을 강조하는 주석 
+
+<a name = "5"></a>
+## Chapter 05. 형식 맞추기
+* ctrl + shift + F
+* 개념은 빈 행으로 분리하라
+* 수직거리 
+	* 변수는 사용하는 위치에서 최대한 가까이 선언한다. 
+	* 인스턴스 변수는 클래스 맨 처음에 선언한다
+	* 한 함수가 다른 함수를 호출한다면 가까이 배치할 것. 호출되는 함수는 호출하는 함수보다 뒤에 배치한다.
+* 가로형식 맞추기
+
+<a name = "6"></a>
+## Chapter 06. 객체와 자료구조
+
+* OOP 
+	* 캡슐화
+	* 상속
+	* 다형성
+* 변수를 private로 하는 것. 외부에서 노출되지 않게 함. -> 캡슐화 (DTO)
+*  java lombok으로 getter, setter, tostring등의 메서드 작성을 자동으로 해주는 라이브러리.
+* 디미터 법칙 :  
+	모듈은 자신이 조작하는 객체의 속사정을 몰라야한다.
+* 자료 전달 객체
+* 자료구조는 별다른 동작 없이 자료를 노출한다. 
+	* Map - HashMap
+	* List - ArrayList
+	* Set - HashSet
+* 함수형 언어 
+	* Python
+	* JavaScript : Class + 함수형 언어
+	* Java : Class + 람다식
+		> 람다식 (Lambda Expressions) 
+		> 함수적 프로그래밍을 위해 자바 8부터 람다식 지원.   
+		객체 자체를 생성하지 않음
+* 객체는 동작을 공개하고 자료를 숨긴다.  
+그래서 새 동작을 추가하기는 쉬우나 기존함수에 새 자료구조를 추가하기는 어렵다.
+
+<a name = "7"></a>
+## Chapter 07. 에러 핸들링
+* Unchecked Exceptions를 사용하라
+* try - catch - finally 
+	* finally 에서는 꼭 자원 해제를 할 것
+	* try문에서 transction처럼 동작하는 실행코드
+	* catch문에서 프로그램을 일관된 상태로 유지하도록 함
